@@ -14,23 +14,35 @@ a {
 
 .header {
     width: 100%;
-    height: 50px;
+    height: 6vh;
     background-color: #DBD7A4;
+    display: flex;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    right: 5%;
+    font-family: 'Poiret One';
+    color: #F5F5F5;
+    font-size: 32px;
+    font-weight: 400;
 }
 
 main {
     width: auto;
-    height: 704px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .first {
     width: auto;
-    height: 47%;
+    height: 45vh;
     background-color: #383838;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .first-image-block {
@@ -43,12 +55,13 @@ main {
 }
 
 .first-image{
-    width: 190px;
+    width: 180px;
     height: 180px;
 }
 
 .first-question {
-    width: auto;
+    box-sizing: border-box;
+    width: 100%;
     height: auto;
     background-color: #29292E;
     border-top-left-radius: 25px;
@@ -62,10 +75,21 @@ main {
 
 .second {
     width: auto;
-    height: 53%;
+    height: 49vh;
     background-color: #383838;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.vs {
+    font-size: 48px;
+    font-weight: 500;
+    color:#D2C64B;
+    position: absolute;
+    top: -10px;
+    -webkit-text-stroke: 0.5px #000;
 }
 
 .second-image-block {
@@ -78,12 +102,13 @@ main {
 }
 
 .second-image{
-    width: 190px;
+    width: 180px;
     height: 180px;
 }
 
 .second-question {
-    width: auto;
+    box-sizing: border-box;
+    width: 100%;
     height: auto;
     background-color: #29292E;
     border-top-left-radius: 25px;
@@ -92,4 +117,6 @@ main {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     padding: 12px 24px;
+    position: absolute;
+    bottom: 0;
 }
