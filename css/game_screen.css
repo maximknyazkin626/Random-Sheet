@@ -101,7 +101,7 @@ main {
 }
 
 .second:hover {
-    background-color: #cac47e;
+    background-color: #cac694cb;
 }
 
 .vs {
@@ -141,4 +141,57 @@ main {
     position: absolute;
     bottom: 0;
     text-align: center;
+}
+
+/* --------------------Desktop Version-------------------- */
+@media (min-width: 1024px) {
+    .header {
+        height: 7vh;
+    }
+
+    main{
+        height: 93vh;
+        flex-direction: row;
+    }
+
+    .first {
+        width: 50%;
+        height: auto;
+    }
+
+    .first-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .first-question {
+        font-size: 38px;
+        padding: 5% 10%;
+        height: 23%;
+        border: 10px #353552 solid;
+    }
+
+    .vs {
+        font-size: 104px;
+        top: auto;
+        left: -8.5%;
+        bottom: 50%;
+    }
+
+    .second {
+        width: 50%;
+        height: auto;
+    }
+
+    .second-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .second-question {
+        font-size: 38px;
+        padding: 5% 10%;
+        height: 23%;
+         border: 10px #353552 solid;
+    }
 }
