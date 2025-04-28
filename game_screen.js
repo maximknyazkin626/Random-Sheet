@@ -92,17 +92,109 @@ function generateRandomImage(array) {
 document.addEventListener("DOMContentLoaded", generateRandomImage(images));
 
 
-// ------------------------------Выбор вариантов ответов------------------------------
+// ------------------------------Запись ответов в статистику---------------------------------
+class StatisticsItem {
+    constructor(id, question) {
+      this.id = id;
+      this.questions = [question];
+    }
+} /////////////Класс для записи объектов со статистикой
+
+let answers = []; ////////////////Массив в котором хранятся объекты со статистикой: id - ссылка на фото, questions - массив вопросов
+console.log(answers);
+
+
+// ------------------------------Выбор вариантов ответов--------------------------------------
+// ------------------------------Появление экрана окончания игры------------------------------
 let first = document.getElementById('first');
 let second = document.getElementById('second');
 let counter = 0;
 
+let gameHeader = document.getElementById('gameHeader');
+let gameMain = document.getElementById('gameMain');
+let endScreen = document.getElementById('endScreen');
+
+// -----------------Переменные для вписывания вопросов в статистику-------------------------
+let statisticImg1 = document.getElementById('statisticsCardImage1');
+let statisticImg2 = document.getElementById('statisticsCardImage2');
+let statisticImg3 = document.getElementById('statisticsCardImage3');
+let statisticImg4 = document.getElementById('statisticsCardImage4');
+let statisticImg5 = document.getElementById('statisticsCardImage5');
+let statisticImg6 = document.getElementById('statisticsCardImage6');
+let statisticImg7 = document.getElementById('statisticsCardImage7');
+let statisticImg8 = document.getElementById('statisticsCardImage8');
+let statisticImg9 = document.getElementById('statisticsCardImage9');
+
+let statisticImg1Src = statisticImg1.src;
+let statisticImg2Src = statisticImg2.src;
+let statisticImg3Src = statisticImg3.src;
+let statisticImg4Src = statisticImg4.src;
+let statisticImg5Src = statisticImg5.src;
+let statisticImg6Src = statisticImg6.src;
+let statisticImg7Src = statisticImg7.src;
+let statisticImg8Src = statisticImg8.src;
+let statisticImg9Src = statisticImg9.src;
+
 first.addEventListener('click', () => {
+    let firstImageSrc = firstImage.src;
+    let firstQuestionText = firstQuestion.textContent;
+
+    // console.log(firstImageSrc);
+    let exists = answers.find(obj => obj.id == firstImageSrc);
+    console.log('Статус объекта - ', exists);
+
+    if (exists == undefined) {
+        // console.log(firstQuestion.textContent);
+        answers.push(new StatisticsItem(firstImageSrc, firstQuestionText));
+        console.log(answers);
+    } else { 
+        exists.questions.push(firstQuestionText);
+        console.log(answers);
+    }
+
     generateRandomImage(images);
     generateRandomQuestion(questions);
+    counter++;
+    console.log(counter);
+
+    if (counter === 12) {
+        gameHeader.classList.toggle('hide');
+        gameMain.classList.toggle('hide');
+        endScreen.classList.toggle('hide');
+
+        statisticImg1.src = answers[1].id;
+        statisticImg2.src = answers[2].id;
+        statisticImg3.src = answers[3].id;
+        statisticImg4.src = answers[4].id;
+    }
 });
 
 second.addEventListener('click', () => {
+    let secondImageSrc = secondImage.src;
+    let secondQuestionText = secondQuestion.textContent;
+
+    let exists = answers.find(obj => obj.id == secondImageSrc);
+    console.log('Статус объекта - ', exists);
+
+    if (exists == undefined) {
+        // console.log(firstQuestion.textContent);
+        answers.push(new StatisticsItem(secondImageSrc, secondQuestionText));
+        console.log(answers);
+    } else { 
+        exists.questions.push(secondQuestionText);
+        console.log(answers);
+    }
+
     generateRandomImage(images);
     generateRandomQuestion(questions);
+    counter++;
+    console.log(counter);
+
+    if (counter === 12) {
+        console.log('Counter = 12');
+        gameHeader.classList.toggle('hide');
+        gameMain.classList.toggle('hide');
+        endScreen.classList.toggle('hide');
+
+    }
 });
