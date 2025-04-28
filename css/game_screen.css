@@ -37,9 +37,7 @@ a {
 .burger {
     width: 43px;
     height: 27px;
-    position: absolute;
-    left: 3%;
-    top: 20%;
+    margin-left: 30%;
 }
 
 main {
@@ -152,6 +150,10 @@ main {
 @media (min-width: 1024px) {
     .header {
         height: 7vh;
+    }
+
+    .burger {
+        margin-left: 100%;
     }
 
     main{
