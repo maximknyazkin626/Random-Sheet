@@ -62,8 +62,7 @@ let images = [
     './assets/16.jpg',
     './assets/17.jpg',
     './assets/18.jpg',
-    './assets/19.jpg',
-    './assets/20.jpg'
+    './assets/19.jpg'
 ]
 
 // ------------------------------Генератор рандомных вопросов------------------------------
@@ -99,9 +98,11 @@ let second = document.getElementById('second');
 let counter = 0;
 
 first.addEventListener('click', () => {
-    window.location.reload();
+    generateRandomImage(images);
+    generateRandomQuestion(questions);
 });
 
 second.addEventListener('click', () => {
-    window.location.reload();
+    generateRandomImage(images);
+    generateRandomQuestion(questions);
 });

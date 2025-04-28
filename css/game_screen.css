@@ -40,7 +40,8 @@ a {
 
 main {
     width: auto;
-    height: 100%;
+    /* height: 100%; */
+    height: 94vh;
     display: flex;
     flex-direction: column;
 }
