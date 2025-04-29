@@ -116,24 +116,31 @@ let endScreen = document.getElementById('endScreen');
 
 // -----------------Переменные для вписывания вопросов в статистику-------------------------
 let statisticImg1 = document.getElementById('statisticsCardImage1');
-let statisticImg2 = document.getElementById('statisticsCardImage2');
-let statisticImg3 = document.getElementById('statisticsCardImage3');
-let statisticImg4 = document.getElementById('statisticsCardImage4');
-let statisticImg5 = document.getElementById('statisticsCardImage5');
-let statisticImg6 = document.getElementById('statisticsCardImage6');
-let statisticImg7 = document.getElementById('statisticsCardImage7');
-let statisticImg8 = document.getElementById('statisticsCardImage8');
-let statisticImg9 = document.getElementById('statisticsCardImage9');
 
-let statisticImg1Src = statisticImg1.src;
-let statisticImg2Src = statisticImg2.src;
-let statisticImg3Src = statisticImg3.src;
-let statisticImg4Src = statisticImg4.src;
-let statisticImg5Src = statisticImg5.src;
-let statisticImg6Src = statisticImg6.src;
-let statisticImg7Src = statisticImg7.src;
-let statisticImg8Src = statisticImg8.src;
-let statisticImg9Src = statisticImg9.src;
+let endScreenStatistics = document.querySelector('.end-screen__statistics');
+
+function createStatisticsElement(array) {
+    //////////////////////////////Создаём элемент самой карточки - newStatisticsCard
+    let newStatisticsCard = document.createElement('div');
+    newStatisticsCard.className = 'end-screen__statistics-card'; 
+    endScreenStatistics.append(newStatisticsCard);
+    
+    ////////////////////////////Создаём элемент изображения - newStatisticsCardImage
+    let newStatisticsCardImage = document.createElement('img');
+    newStatisticsCardImage.className = 'end-screen__statistics-card-image'; 
+    newStatisticsCard.prepend(newStatisticsCardImage);
+    newStatisticsCardImage.src = array.id
+
+    ////////////////////////////Создаём элемент вопроса - newStatisticsCardImage
+    for (let i = 0; i < array.questions.length; i++) {
+        let newStatisticsCardQuestion = document.createElement('div');
+        newStatisticsCardQuestion.className = 'end-screen__statistics-card-question';
+        newStatisticsCard.append(newStatisticsCardQuestion);
+        newStatisticsCardQuestion.textContent = array.questions[i];
+    }
+    
+}
+
 
 first.addEventListener('click', () => {
     let firstImageSrc = firstImage.src;
@@ -162,10 +169,10 @@ first.addEventListener('click', () => {
         gameMain.classList.toggle('hide');
         endScreen.classList.toggle('hide');
 
-        statisticImg1.src = answers[1].id;
-        statisticImg2.src = answers[2].id;
-        statisticImg3.src = answers[3].id;
-        statisticImg4.src = answers[4].id;
+        for (let i = 0; i < answers.length; i++) {
+            // statisticImg1.src = answers[i].id;
+            createStatisticsElement(answers[i]);
+        }
     }
 });
 
@@ -196,5 +203,9 @@ second.addEventListener('click', () => {
         gameMain.classList.toggle('hide');
         endScreen.classList.toggle('hide');
 
+        for (let i = 0; i < answers.length; i++) {
+            // statisticImg1.src = answers[i].id;
+            createStatisticsElement(answers[i]);
+        }
     }
 });
