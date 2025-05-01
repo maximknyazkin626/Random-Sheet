@@ -56,7 +56,6 @@ let images = [
     './assets/7.jpg',
     './assets/8.jpg',
     './assets/11.jpg',
-    './assets/13.jpg',
     './assets/16.jpg'
 ]
 
