@@ -40,7 +40,10 @@ let questions = [
     'Станет президентом России',
     'Съест коровью лепёшку',
     'Никогда больше его не увидеть',
-    'Выйдет в клетку против Конора Макгрегора на минуту'
+    'Выйдет в клетку против Конора Макгрегора на минуту',
+    'Станет патау',
+    'Не сможет больше разговаривать',
+    '50 пощёчин'
 ];
 
 let images = [
@@ -52,17 +55,9 @@ let images = [
     './assets/6.jpg',
     './assets/7.jpg',
     './assets/8.jpg',
-    './assets/9.jpg',
-    './assets/10.jpg',
     './assets/11.jpg',
-    './assets/12.jpg',
     './assets/13.jpg',
-    './assets/14.jpg',
-    './assets/15.jpg',
-    './assets/16.jpg',
-    './assets/17.jpg',
-    './assets/18.jpg',
-    './assets/19.jpg'
+    './assets/16.jpg'
 ]
 
 // ------------------------------Генератор рандомных вопросов------------------------------
@@ -85,8 +80,15 @@ let secondImage = document.querySelector('.second-image');
 function generateRandomImage(array) {
     let randomNum1 = Math.floor(Math.random() * array.length);
     let randomNum2 = Math.floor(Math.random() * array.length);
-    firstImage.setAttribute("src", array[randomNum1]);
-    secondImage.setAttribute("src", array[randomNum2]);
+    if (randomNum1 === randomNum2) {
+        randomNum1 = Math.floor(Math.random() * array.length);
+        firstImage.setAttribute("src", array[randomNum1]);
+        secondImage.setAttribute("src", array[randomNum2]);
+    } else {
+        firstImage.setAttribute("src", array[randomNum1]);
+        secondImage.setAttribute("src", array[randomNum2]);
+    }
+    
 }
 
 document.addEventListener("DOMContentLoaded", generateRandomImage(images));
@@ -165,7 +167,7 @@ first.addEventListener('click', () => {
     console.log(counter);
 
     if (counter === 12) {
-        gameHeader.classList.toggle('hide');
+        // gameHeader.classList.toggle('hide');
         gameMain.classList.toggle('hide');
         endScreen.classList.toggle('hide');
 
@@ -199,7 +201,7 @@ second.addEventListener('click', () => {
 
     if (counter === 12) {
         console.log('Counter = 12');
-        gameHeader.classList.toggle('hide');
+        // gameHeader.classList.toggle('hide');
         gameMain.classList.toggle('hide');
         endScreen.classList.toggle('hide');
 
